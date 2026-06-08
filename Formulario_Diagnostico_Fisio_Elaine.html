@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Quero te conhecer melhor Elaine Oliveira</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --verde:      #2D6A4F;
+  --verde-med:  #40916C;
+  --verde-clr:  #B7E4C7;
+  --creme:      #FAF7F2;
+  --creme-esc:  #EDE8DE;
+  --marrom:     #4A3728;
+  --texto:      #1E1E1E;
+  --suave:      #7A6E65;
+  --branco:     #FFFFFF;
+  --erro:       #C0392B;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--creme);
+  color:var(--texto);
+  min-height:100vh;
+}
+
+/* ── HERO ── */
+.hero{
+  background:var(--verde);
+  padding:64px 24px 80px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.04);
+  top:-200px;right:-100px;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  width:300px;height:300px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.04);
+  bottom:-150px;left:-80px;
+}
+.hero-tag{
+  display:inline-block;
+  border:1px solid rgba(255,255,255,0.3);
+  color:var(--verde-clr);
+  border-radius:100px;
+  padding:5px 18px;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:24px;
+  position:relative;z-index:1;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,7vw,60px);
+  font-weight:800;
+  color:var(--branco);
+  line-height:1.15;
+  margin-bottom:8px;
+  position:relative;z-index:1;
+  letter-spacing:-0.5px;
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--verde-clr);
+}
+.hero-sub{
+  font-size:14px;
+  color:rgba(255,255,255,0.6);
+  position:relative;z-index:1;
+  letter-spacing:1px;
+}
+
+/* ── APRESENTAÇÃO ── */
+.apresentacao{
+  max-width:640px;
+  margin:-32px auto 0;
+  background:var(--branco);
+  border-radius:20px;
+  padding:40px 44px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.1);
+  position:relative;
+  z-index:2;
+}
+.apresentacao p{
+  font-family:'Nunito',sans-serif;
+  font-size:16px;
+  font-weight:400;
+  font-weight:400;
+  line-height:1.75;
+  color:var(--marrom);
+}
+.apresentacao p + p{margin-top:14px;}
+.assinatura{
+  margin-top:28px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding-top:22px;
+  border-top:1px solid var(--creme-esc);
+}
+.assinatura-avatar{
+  width:48px;height:48px;
+  border-radius:50%;
+  background:var(--verde);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  flex-shrink:0;
+}
+.assinatura-info strong{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  color:var(--texto);
+}
+.assinatura-info span{
+  font-size:12px;
+  color:var(--suave);
+}
+
+/* ── FORM CONTAINER ── */
+.form-container{
+  max-width:640px;
+  margin:32px auto 80px;
+  padding:0 20px;
+}
+
+/* ── BLOCO ── */
+.bloco{
+  background:var(--branco);
+  border-radius:20px;
+  padding:36px 40px;
+  margin-bottom:20px;
+  box-shadow:0 2px 16px rgba(0,0,0,0.06);
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .5s ease forwards;
+}
+.bloco:nth-child(1){animation-delay:.05s}
+.bloco:nth-child(2){animation-delay:.1s}
+.bloco:nth-child(3){animation-delay:.15s}
+.bloco:nth-child(4){animation-delay:.2s}
+.bloco:nth-child(5){animation-delay:.25s}
+.bloco:nth-child(6){animation-delay:.3s}
+.bloco:nth-child(7){animation-delay:.35s}
+.bloco:nth-child(8){animation-delay:.4s}
+
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── CAMPO ── */
+.campo{margin-bottom:24px;}
+.campo:last-child{margin-bottom:0;}
+.campo label{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  color:var(--marrom);
+  margin-bottom:8px;
+  line-height:1.4;
+}
+.campo label .num{
+  display:inline-flex;
+  align-items:center;justify-content:center;
+  width:22px;height:22px;
+  background:var(--creme-esc);
+  border-radius:6px;
+  font-size:11px;
+  font-weight:700;
+  color:var(--verde);
+  margin-right:8px;
+  flex-shrink:0;
+}
+.campo input[type=text],
+.campo input[type=email],
+.campo textarea,
+.campo select{
+  width:100%;
+  border:2px solid var(--creme-esc);
+  border-radius:12px;
+  padding:13px 16px;
+  font-family:'Nunito',sans-serif;
+  font-size:14px;
+  color:var(--texto);
+  background:var(--creme);
+  transition:.2s;
+  resize:vertical;
+  appearance:none;
+}
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus{
+  outline:none;
+  border-color:var(--verde-med);
+  background:var(--branco);
+  box-shadow:0 0 0 4px rgba(64,145,108,0.1);
+}
+.campo textarea{min-height:90px;}
+
+/* ── RADIO/CHECKBOX ── */
+.opcoes{display:flex;flex-direction:column;gap:8px;}
+.opcoes.horizontal{flex-direction:row;flex-wrap:wrap;gap:8px;}
+
+.opcao{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:var(--creme);
+  border:2px solid var(--creme-esc);
+  border-radius:10px;
+  padding:11px 16px;
+  cursor:pointer;
+  transition:.2s;
+  font-size:14px;
+  color:var(--texto);
+  user-select:none;
+}
+.opcao:hover{border-color:var(--verde-clr);}
+.opcao input{display:none;}
+.opcao .mark{
+  width:18px;height:18px;
+  border:2px solid var(--creme-esc);
+  border-radius:50%;
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:.2s;
+}
+.opcao.checkbox .mark{border-radius:5px;}
+.opcao input:checked ~ .mark{
+  background:var(--verde);
+  border-color:var(--verde);
+}
+.opcao input:checked ~ .mark::after{
+  content:'✓';
+  color:white;
+  font-size:11px;
+  font-weight:700;
+}
+.opcao input:checked ~ span{color:var(--verde);font-weight:600;}
+.opcao:has(input:checked){
+  border-color:var(--verde-clr);
+  background:rgba(183,228,199,0.15);
+}
+
+/* ── SUBMIT ── */
+.submit-area{
+  text-align:center;
+  padding:0 20px 80px;
+  max-width:640px;
+  margin:0 auto;
+}
+.btn-submit{
+  background:var(--verde);
+  color:var(--branco);
+  border:none;
+  border-radius:16px;
+  padding:18px 56px;
+  font-family:'Nunito',sans-serif;
+  font-size:17px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:0 6px 24px rgba(45,106,79,0.3);
+  width:100%;
+  max-width:400px;
+  letter-spacing:0.2px;
+}
+.btn-submit:hover{
+  background:var(--verde-med);
+  transform:translateY(-2px);
+  box-shadow:0 10px 32px rgba(45,106,79,0.35);
+}
+.btn-submit:active{transform:translateY(0);}
+.submit-obs{
+  margin-top:14px;
+  font-size:12px;
+  color:var(--suave);
+  line-height:1.6;
+}
+
+/* ── SUCESSO ── */
+.sucesso{
+  display:none;
+  max-width:640px;
+  margin:40px auto 80px;
+  padding:0 20px;
+  text-align:center;
+}
+.sucesso-card{
+  background:var(--branco);
+  border-radius:20px;
+  padding:56px 40px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.1);
+}
+.sucesso-icon{font-size:52px;margin-bottom:20px;}
+.sucesso-card h2{
+  font-family:'Nunito',sans-serif;
+  font-size:32px;
+  font-weight:600;
+  color:var(--verde);
+  margin-bottom:14px;
+}
+.sucesso-card p{
+  font-size:16px;
+  color:var(--suave);
+  line-height:1.7;
+}
+
+/* ── PROGRESS BAR ── */
+.progress-wrap{
+  position:sticky;
+  top:0;z-index:99;
+  background:var(--branco);
+  border-bottom:1px solid var(--creme-esc);
+  padding:10px 20px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.progress-label{
+  font-size:12px;
+  font-weight:600;
+  color:var(--suave);
+  white-space:nowrap;
+}
+.progress-bar{
+  flex:1;
+  height:6px;
+  background:var(--creme-esc);
+  border-radius:100px;
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--verde),var(--verde-med));
+  border-radius:100px;
+  width:0%;
+  transition:.4s ease;
+}
+.progress-pct{
+  font-size:12px;
+  font-weight:700;
+  color:var(--verde);
+  white-space:nowrap;
+}
+
+/* ── RODAPÉ ── */
+.rodape{
+  text-align:center;
+  padding:24px;
+  font-size:12px;
+  color:var(--suave);
+  border-top:1px solid var(--creme-esc);
+}
+
+@media(max-width:560px){
+  .apresentacao{padding:28px 24px;}
+  .bloco{padding:28px 22px;}
+  .opcoes.horizontal{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Sessão de Diagnóstico</div>
+  <h1>Quero te conhecer <em>melhor</em> 🌿</h1>
+  <p class="hero-sub">Elaine Oliveira · Fisioterapeuta On-line</p>
+</div>
+
+<!-- APRESENTAÇÃO -->
+<div class="form-container" style="margin-top:0;padding-top:0;">
+  <div class="apresentacao">
+    <p>Que bom que você chegou até aqui!</p>
+    <p>Se você está preenchendo esse formulário, é porque algo na minha trajetória ressoou com a sua e isso já me diz muito sobre você.</p>
+    <p>Antes de conversarmos, quero entender de verdade onde você está hoje, o que você está buscando e o que está te impedindo de chegar lá. Não existe resposta certa ou errada aqui quanto mais honesta você for, mais eu consigo entender como posso te ajudar de verdade.</p>
+    <p>Isso não vai tomar muito do seu tempo. Responda com calma, no seu ritmo, e assim que eu receber suas respostas eu entro em contato para agendarmos uma conversa.</p>
+    <p>Mal posso esperar para te conhecer. 🧡</p>
+    <div class="assinatura">
+      <div class="assinatura-avatar">🌿</div>
+      <div class="assinatura-info">
+        <strong>Elaine Oliveira</strong>
+        <span>Fisioterapeuta · Especialista em Dor Lombar</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <span class="progress-label">Elaine Oliveira · Fisioterapeuta On-line</span>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <span class="progress-pct" id="progress-pct">0%</span>
+</div>
+
+<!-- FORMULÁRIO -->
+<div class="form-container" id="form-area">
+<form id="form" novalidate>
+
+  <!-- BLOCO 1 -->
+  <div class="bloco">
+<div class="campo">
+      <label><span class="num">1</span>Seu nome completo</label>
+      <input type="text" name="nome" placeholder="Como você se chama?"/>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">2</span>Seu e-mail</label>
+      <input type="email" name="email" placeholder="seuemail@exemplo.com"/>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">3</span>Há quanto tempo você atua como fisioterapeuta?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="tempo_atuacao" value="Menos de 1 ano"/><span class="mark"></span><span>Menos de 1 ano</span></label>
+        <label class="opcao"><input type="radio" name="tempo_atuacao" value="1 a 3 anos"/><span class="mark"></span><span>De 1 a 3 anos</span></label>
+        <label class="opcao"><input type="radio" name="tempo_atuacao" value="3 a 5 anos"/><span class="mark"></span><span>De 3 a 5 anos</span></label>
+        <label class="opcao"><input type="radio" name="tempo_atuacao" value="5 a 10 anos"/><span class="mark"></span><span>De 5 a 10 anos</span></label>
+        <label class="opcao"><input type="radio" name="tempo_atuacao" value="Mais de 10 anos"/><span class="mark"></span><span>Mais de 10 anos</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">4</span>Qual é a sua área de especialização ou foco clínico principal?</label>
+      <input type="text" name="especializacao" placeholder="Ex: ortopedia, neurologia, saúde da mulher..."/>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">5</span>Você tem alguma pós-graduação ou especialização concluída? Se sim, qual?</label>
+      <textarea name="pos_graduacao" placeholder="Pode listar mais de uma se tiver..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">6</span>Você atua em qual formato hoje?</label>
+      <div class="opcoes">
+        <label class="opcao checkbox"><input type="checkbox" name="formato" value="Clínica/consultório"/><span class="mark"></span><span>Clínica ou consultório</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="formato" value="Domiciliar"/><span class="mark"></span><span>Atendimento domiciliar</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="formato" value="Online"/><span class="mark"></span><span>Online</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="formato" value="Combinação"/><span class="mark"></span><span>Uma combinação dos formatos</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">7</span>Atualmente você trabalha sozinha ou tem sócios/equipe?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="estrutura" value="Sozinha"/><span class="mark"></span><span>Sozinha</span></label>
+        <label class="opcao"><input type="radio" name="estrutura" value="Com sócios"/><span class="mark"></span><span>Com sócios</span></label>
+        <label class="opcao"><input type="radio" name="estrutura" value="Tenho equipe"/><span class="mark"></span><span>Tenho equipe</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 2 -->
+  <div class="bloco">
+<div class="campo">
+      <label><span class="num">8</span>Como está estruturada sua agenda hoje? Quantos pacientes você atende por semana em média?</label>
+      <textarea name="agenda" placeholder="Me conta um pouco sobre sua rotina de atendimentos..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">9</span>Qual é sua principal fonte de renda atualmente?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="renda" value="Atendimento clínico"/><span class="mark"></span><span>Atendimento clínico</span></label>
+        <label class="opcao"><input type="radio" name="renda" value="Outros vínculos"/><span class="mark"></span><span>Outros vínculos (emprego, concurso...)</span></label>
+        <label class="opcao"><input type="radio" name="renda" value="Ambos"/><span class="mark"></span><span>Ambos</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">10</span>Você já tentou atender pacientes online? Como foi essa experiência?</label>
+      <textarea name="experiencia_online" placeholder="Se nunca tentou, pode escrever isso também..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">11</span>Você já vendeu algum produto digital ou serviço online? Se sim, qual?</label>
+      <textarea name="produto_digital" placeholder="Curso, e-book, programa, consultoria..."></textarea>
+    </div>
+  </div>
+
+  <!-- BLOCO 3 -->
+  <div class="bloco">
+<div class="campo">
+      <label><span class="num">12</span>O que te motivou a me procurar?</label>
+      <textarea name="motivacao" placeholder="Pode ser sincera quero entender o que te trouxe até aqui..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">13</span>Qual seria o cenário ideal para você daqui a 6 meses?</label>
+      <textarea name="cenario_ideal" placeholder="Descreva como você imagina sua vida profissional daqui a 6 meses..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">14</span>O que você quer construir no online?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="objetivo_online" value="Migrar completamente para o online"/><span class="mark"></span><span>Migrar completamente para o online</span></label>
+        <label class="opcao"><input type="radio" name="objetivo_online" value="Criar renda paralela ao presencial"/><span class="mark"></span><span>Criar uma renda paralela ao presencial</span></label>
+        <label class="opcao"><input type="radio" name="objetivo_online" value="Ainda não sei"/><span class="mark"></span><span>Ainda não tenho certeza</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">15</span>Você tem interesse em criar produtos digitais, atender pacientes online, ou os dois?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="interesse" value="Produtos digitais"/><span class="mark"></span><span>Produtos digitais</span></label>
+        <label class="opcao"><input type="radio" name="interesse" value="Atender pacientes online"/><span class="mark"></span><span>Atender pacientes online</span></label>
+        <label class="opcao"><input type="radio" name="interesse" value="Os dois"/><span class="mark"></span><span>Os dois</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">16</span>Tem alguma especialidade ou tema que você sonha em trabalhar de forma mais aprofundada?</label>
+      <textarea name="sonho" placeholder="Pode ser algo que você ainda não faz mas sente vontade..."></textarea>
+    </div>
+  </div>
+
+  <!-- BLOCO 4 -->
+  <div class="bloco">
+<div class="campo">
+      <label><span class="num">17</span>Qual é a maior dificuldade que você enfrenta hoje na sua carreira?</label>
+      <textarea name="dificuldade" placeholder="Seja honesta isso me ajuda muito a entender como posso te ajudar..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">18</span>O que você já tentou fazer para crescer online e não funcionou como esperava?</label>
+      <textarea name="tentativas" placeholder="Se nunca tentou, pode escrever isso também..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">19</span>Tem algo na sua rotina atual que te esgota ou que você claramente quer mudar?</label>
+      <textarea name="esgotamento" placeholder="Pode falar com liberdade..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">20</span>Como você se sente em relação à sua remuneração atual?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="remuneracao" value="Estou satisfeita"/><span class="mark"></span><span>Estou satisfeita com onde estou</span></label>
+        <label class="opcao"><input type="radio" name="remuneracao" value="Poderia ser melhor"/><span class="mark"></span><span>Poderia ser bem melhor</span></label>
+        <label class="opcao"><input type="radio" name="remuneracao" value="Muito abaixo"/><span class="mark"></span><span>Está muito abaixo do que eu preciso</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">21</span>Existe alguma comparação que você faz com outros profissionais que te frustra ou te motiva?</label>
+      <textarea name="comparacao" placeholder="Pode mencionar alguém que você admira ou com quem se compara..."></textarea>
+    </div>
+  </div>
+
+  <!-- BLOCO 5 -->
+  <div class="bloco">
+<div class="campo">
+      <label><span class="num">22</span>O que te impede hoje de dar o próximo passo no online?</label>
+      <textarea name="impedimento" placeholder="Pode ser tempo, dinheiro, conhecimento, medo seja honesta..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">23</span>Você tem algum medo específico em relação a aparecer nas redes ou produzir conteúdo?</label>
+      <textarea name="medo_conteudo" placeholder="Julgamento, não saber o que falar, não ter retorno..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">24</span>Existe alguma crença que você sente que te trava?</label>
+      <div class="opcoes">
+        <label class="opcao checkbox"><input type="checkbox" name="crenca" value="Meu nicho é muito específico"/><span class="mark"></span><span>"Meu nicho é muito específico"</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="crenca" value="Não tenho tempo"/><span class="mark"></span><span>"Não tenho tempo"</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="crenca" value="Não sei fazer vídeos"/><span class="mark"></span><span>"Não sei fazer vídeos"</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="crenca" value="Não sou boa em vendas"/><span class="mark"></span><span>"Não sou boa em vendas"</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="crenca" value="Não tenho seguidores suficientes"/><span class="mark"></span><span>"Não tenho seguidores suficientes"</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="crenca" value="Outra"/><span class="mark"></span><span>Outra</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">25</span>Você se sente insegura em relação a algum aspecto técnico?</label>
+      <div class="opcoes">
+        <label class="opcao checkbox"><input type="checkbox" name="inseguranca" value="Precificação"/><span class="mark"></span><span>Precificação</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="inseguranca" value="Plataformas"/><span class="mark"></span><span>Plataformas e ferramentas</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="inseguranca" value="Funil de vendas"/><span class="mark"></span><span>Funil de vendas</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="inseguranca" value="Tráfego pago"/><span class="mark"></span><span>Tráfego pago</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="inseguranca" value="Conteúdo"/><span class="mark"></span><span>Estratégia de conteúdo</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">26</span>Já aconteceu de você começar algo no digital e desistir no meio? O que provocou isso?</label>
+      <textarea name="desistencia" placeholder="Se nunca tentou, pode pular essa..."></textarea>
+    </div>
+  </div>
+
+  <!-- BLOCO 6 -->
+  <div class="bloco">
+<div class="campo">
+      <label><span class="num">27</span>Você já produz conteúdo para redes sociais hoje? Se sim, com que frequência?</label>
+      <textarea name="frequencia_conteudo" placeholder="Diariamente, semanalmente, raramente, nunca..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">28</span>Em quais plataformas você está ativa atualmente?</label>
+      <div class="opcoes horizontal">
+        <label class="opcao checkbox"><input type="checkbox" name="plataforma" value="Instagram"/><span class="mark"></span><span>Instagram</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="plataforma" value="TikTok"/><span class="mark"></span><span>TikTok</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="plataforma" value="YouTube"/><span class="mark"></span><span>YouTube</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="plataforma" value="LinkedIn"/><span class="mark"></span><span>LinkedIn</span></label>
+        <label class="opcao checkbox"><input type="checkbox" name="plataforma" value="Nenhuma"/><span class="mark"></span><span>Nenhuma ainda</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">29</span>Como você se descreveria em relação à produção de conteúdo?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="nivel_conteudo" value="Nunca produzi"/><span class="mark"></span><span>Nunca produzi nada e não sei por onde começar</span></label>
+        <label class="opcao"><input type="radio" name="nivel_conteudo" value="Tentei mas não mantive"/><span class="mark"></span><span>Já tentei algumas vezes mas não mantive consistência</span></label>
+        <label class="opcao"><input type="radio" name="nivel_conteudo" value="Produzo esporadicamente"/><span class="mark"></span><span>Produzo esporadicamente mas sem estratégia</span></label>
+        <label class="opcao"><input type="radio" name="nivel_conteudo" value="Produzo com regularidade"/><span class="mark"></span><span>Produzo com regularidade mas não vejo resultado</span></label>
+        <label class="opcao"><input type="radio" name="nivel_conteudo" value="Produzo com consistência"/><span class="mark"></span><span>Produzo com consistência e já tenho uma audiência</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">30</span>Você aparece em vídeo ou prefere formatos sem mostrar o rosto?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="formato_conteudo" value="Apareço em vídeo"/><span class="mark"></span><span>Apareço em vídeo normalmente</span></label>
+        <label class="opcao"><input type="radio" name="formato_conteudo" value="Tenho dificuldade mas quero"/><span class="mark"></span><span>Tenho dificuldade mas quero aprender</span></label>
+        <label class="opcao"><input type="radio" name="formato_conteudo" value="Prefiro sem rosto"/><span class="mark"></span><span>Prefiro formatos sem mostrar o rosto</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">31</span>Quanto tempo por semana você conseguiria dedicar à produção de conteúdo?</label>
+      <div class="opcoes horizontal">
+        <label class="opcao"><input type="radio" name="tempo_conteudo" value="Menos de 1h"/><span class="mark"></span><span>Menos de 1h</span></label>
+        <label class="opcao"><input type="radio" name="tempo_conteudo" value="1 a 3h"/><span class="mark"></span><span>1 a 3h</span></label>
+        <label class="opcao"><input type="radio" name="tempo_conteudo" value="3 a 5h"/><span class="mark"></span><span>3 a 5h</span></label>
+        <label class="opcao"><input type="radio" name="tempo_conteudo" value="Mais de 5h"/><span class="mark"></span><span>Mais de 5h</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">32</span>Você tem estrutura para gravar celular bom, iluminação, microfone?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="estrutura_gravacao" value="Sim, tenho tudo"/><span class="mark"></span><span>Sim, tenho tudo</span></label>
+        <label class="opcao"><input type="radio" name="estrutura_gravacao" value="Tenho o básico"/><span class="mark"></span><span>Tenho o básico mas poderia melhorar</span></label>
+        <label class="opcao"><input type="radio" name="estrutura_gravacao" value="Não tenho"/><span class="mark"></span><span>Ainda não tenho estrutura adequada</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">33</span>Você já sabe qual seria seu tema central de conteúdo, ou ainda está em dúvida?</label>
+      <textarea name="tema_conteudo" placeholder="Pode descrever o que você pensa em falar ou o que te gera dúvida..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">34</span>Tem algum profissional de saúde que você acompanha nas redes e admira? Quem?</label>
+      <input type="text" name="referencia" placeholder="Pode ser fisioterapeuta, médico, enfermeira..."/>
+    </div>
+  </div>
+
+  <!-- BLOCO 7 -->
+  <div class="bloco">
+<div class="campo">
+      <label><span class="num">35</span>Você teria tempo na sua rotina para se dedicar a um processo comigo? Quantas horas por semana aproximadamente?</label>
+      <div class="opcoes horizontal">
+        <label class="opcao"><input type="radio" name="tempo_processo" value="Menos de 2h"/><span class="mark"></span><span>Menos de 2h</span></label>
+        <label class="opcao"><input type="radio" name="tempo_processo" value="2 a 4h"/><span class="mark"></span><span>2 a 4h</span></label>
+        <label class="opcao"><input type="radio" name="tempo_processo" value="Mais de 4h"/><span class="mark"></span><span>Mais de 4h</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">36</span>Você tem algum suporte parceiro, equipe, alguém que te ajude no operacional?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="suporte" value="Sim, tenho suporte"/><span class="mark"></span><span>Sim, tenho suporte</span></label>
+        <label class="opcao"><input type="radio" name="suporte" value="Às vezes"/><span class="mark"></span><span>Às vezes, mas não de forma consistente</span></label>
+        <label class="opcao"><input type="radio" name="suporte" value="Não, faço tudo sozinha"/><span class="mark"></span><span>Não, faço tudo sozinha</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">37</span>Você já investiu em cursos, mentorias ou consultorias antes? Como foi?</label>
+      <textarea name="investimento_anterior" placeholder="O que funcionou, o que não funcionou, o que você aprendeu..."></textarea>
+    </div>
+  </div>
+
+  <!-- BLOCO 8 -->
+  <div class="bloco">
+<div class="campo">
+      <label><span class="num">38</span>O que você espera aprender ou resolver num processo comigo?</label>
+      <textarea name="expectativa" placeholder="Seja específica o que você quer que mude na sua realidade?"></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">39</span>O que para você seria um resultado concreto que justificaria o investimento?</label>
+      <textarea name="resultado_esperado" placeholder="Ex: ter minha primeira venda online, conseguir X pacientes por mês..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">40</span>Quando você pensa em investir no seu crescimento profissional, qual faixa faz sentido para você neste momento?</label>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="faixa_investimento" value="Até R$500"/><span class="mark"></span><span>Até R$ 500</span></label>
+        <label class="opcao"><input type="radio" name="faixa_investimento" value="R$500 a R$1.000"/><span class="mark"></span><span>De R$ 500 a R$ 1.000</span></label>
+        <label class="opcao"><input type="radio" name="faixa_investimento" value="R$1.000 a R$2.000"/><span class="mark"></span><span>De R$ 1.000 a R$ 2.000</span></label>
+        <label class="opcao"><input type="radio" name="faixa_investimento" value="R$2.000 a R$5.000"/><span class="mark"></span><span>De R$ 2.000 a R$ 5.000</span></label>
+        <label class="opcao"><input type="radio" name="faixa_investimento" value="Acima de R$5.000"/><span class="mark"></span><span>Acima de R$ 5.000</span></label>
+        <label class="opcao"><input type="radio" name="faixa_investimento" value="Ainda não sei"/><span class="mark"></span><span>Ainda não sei depende do que for oferecido</span></label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label><span class="num">41</span>Tem alguma pergunta que você queria me fazer antes de conversarmos?</label>
+      <textarea name="pergunta_final" placeholder="Pode perguntar o que quiser responderei pessoalmente na nossa conversa..."></textarea>
+    </div>
+  </div>
+
+</form>
+</div>
+
+<!-- BOTÃO SUBMIT -->
+<div class="submit-area" id="submit-area">
+  <button class="btn-submit" onclick="enviarFormulario(event)">Enviar minhas respostas 🧡</button>
+  <p class="submit-obs">Assim que eu receber suas respostas, entro em contato para agendarmos nossa conversa.</p>
+</div>
+
+<!-- SUCESSO -->
+<div class="sucesso" id="sucesso">
+  <div class="sucesso-card">
+    <div class="sucesso-icon">🌿</div>
+    <h2>Recebi suas respostas!</h2>
+    <p>Obrigada pela sua honestidade e por confiar em mim com a sua história. Vou ler com atenção tudo que você compartilhou e entro em contato em breve para agendarmos nossa conversa. Mal posso esperar! 🧡</p>
+  </div>
+</div>
+
+<div class="rodape">
+  Elaine Oliveira · Fisioterapeuta · Crefito 3/232342
+</div>
+
+<script>
+// ── PROGRESS ──────────────────────────────────────────────
+function atualizarProgress(){
+  const campos = document.querySelectorAll('input[type=text], input[type=email], textarea');
+  const radios = document.querySelectorAll('input[type=radio]:checked');
+  const checks = document.querySelectorAll('input[type=checkbox]:checked');
+  let preenchidos = 0;
+  campos.forEach(c=>{ if(c.value.trim()) preenchidos++; });
+  preenchidos += radios.length;
+  preenchidos += checks.length > 0 ? 1 : 0;
+  const total = campos.length + 10;
+  const pct = Math.min(Math.round((preenchidos/total)*100), 100);
+  document.getElementById('progress-fill').style.width = pct+'%';
+  document.getElementById('progress-pct').textContent = pct+'%';
+}
+
+document.querySelectorAll('input, textarea').forEach(el=>{
+  el.addEventListener('input', atualizarProgress);
+  el.addEventListener('change', atualizarProgress);
+});
+
+// ── COLETAR DADOS ─────────────────────────────────────────
+function coletarDados(){
+  const form = document.getElementById('form');
+  const dados = {};
+  const inputs = form.querySelectorAll('input[type=text], input[type=email], textarea');
+  inputs.forEach(i=>{ if(i.name) dados[i.name] = i.value.trim(); });
+  const radios = form.querySelectorAll('input[type=radio]:checked');
+  radios.forEach(r=>{ dados[r.name] = r.value; });
+  const checkGroups = {};
+  form.querySelectorAll('input[type=checkbox]').forEach(c=>{
+    if(!checkGroups[c.name]) checkGroups[c.name] = [];
+    if(c.checked) checkGroups[c.name].push(c.value);
+  });
+  Object.assign(dados, checkGroups);
+  return dados;
+}
+
+// ── ENVIAR ────────────────────────────────────────────────
+function enviarFormulario(e){
+  e.preventDefault();
+  const dados = coletarDados();
+
+  // ⚠️ Substituir pela URL do Apps Script da Elaine
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyaMFHLs-WLa3-LOmwk-saS1W5HDl0qxu5ib8HfwXNpQvPaire6fNNSDYsuWOfdE2joFw/exec';
+
+  fetch(APPS_SCRIPT_URL, {
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(dados)
+  }).catch(()=>{});
+
+  document.getElementById('form-area').style.display = 'none';
+  document.getElementById('submit-area').style.display = 'none';
+  document.getElementById('sucesso').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
