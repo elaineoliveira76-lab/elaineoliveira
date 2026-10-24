@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fisioterapia online para dor lombar | Elaine Oliveira</title>
+<meta name="description" content="Fisioterapia online com a Elaine Oliveira, atendendo pacientes com dor lombar crônica, hérnia de disco e ciática. Consulta individual por videochamada.">
+<meta property="og:title" content="Fisioterapia online para dor lombar | Elaine Oliveira">
+<meta property="og:description" content="Consulta inicial e acompanhamento individual por videochamada, com orientação baseada em evidências. Pacientes em 10 países.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* Paleta dos entregáveis da Elaine (Resumo da Consulta): marinho, âmbar, creme. Fonte: Poppins. */
+:root{
+  --navy:#0F134D; --amber:#E69917; --amber-l:#F6DBAE;
+  --ink:#222222; --muted:#6F7285; --soft:#FDF6EA; --line:#E3E4EC; --white:#FFFFFF;
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--white);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.container{width:min(1040px,100% - 40px);margin:0 auto}
+section{scroll-margin-top:12px}
+h1,h2,h3{font-family:var(--font);color:var(--navy);letter-spacing:-.02em}
+h1{font-weight:700;line-height:1.15;font-size:clamp(29px,7.2vw,54px);margin-bottom:20px}
+h2{font-weight:700;line-height:1.2;font-size:clamp(25px,4.6vw,38px);margin-bottom:28px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--navy);margin-bottom:16px}
+.eyebrow::before{content:"";width:28px;height:4px;border-radius:4px;background:var(--amber);flex:none}
+
+/* identificação no topo: nome grande e profissão embaixo */
+.eyebrow-nome{display:block;border-left:4px solid var(--amber);padding-left:14px;margin-bottom:22px;letter-spacing:0;text-transform:none}
+.eyebrow-nome::before{content:none}
+.eyebrow-nome .who{display:block;font-size:clamp(21px,5.6vw,28px);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);line-height:1.2}
+.eyebrow-nome .role{display:block;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* faixa de texto rodando */
+.marquee{overflow:hidden;background:var(--navy);padding:10px 0}
+.marquee-track{display:flex;width:max-content;white-space:nowrap;animation:marquee 28s linear infinite}
+.marquee span{font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:0 16px}
+.marquee span i{color:var(--amber);font-style:normal;margin-right:16px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:56px 0 64px;background:linear-gradient(180deg,var(--amber-l) 0%,var(--soft) 58%,var(--white) 100%)}
+.hero::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:var(--amber);opacity:.22;filter:blur(70px);top:-210px;right:-170px;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.4;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E")}
+.hero .container{position:relative;z-index:1}
+.hero-grid{display:grid;gap:36px;align-items:center}
+.hero-grid.no-photo{max-width:780px}
+.mark{position:relative;white-space:nowrap}
+.mark svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.28em}
+.sub{font-size:clamp(16px,2.3vw,19px);color:var(--muted);max-width:46ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-family:var(--font);font-weight:600;font-size:16px;padding:16px 28px;border-radius:16px 8px 16px 8px;transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;cursor:pointer;border:none}
+.btn:hover{transform:translateY(-2px) rotate(-.8deg)}
+.btn:active{transform:scale(.98)}
+.btn:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.btn svg{width:21px;height:21px;flex:none}
+.btn-primary{background:var(--amber);color:var(--navy);box-shadow:0 12px 26px rgba(230,153,23,.4)}
+.btn-primary svg{fill:var(--navy)}
+.btn-ghost{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+
+/* foto: aparece sozinha quando existir elaine.jpg */
+.photo{position:relative;justify-self:center;width:min(300px,74%);order:-1}
+.photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:34px 10px 34px 10px;box-shadow:14px 14px 0 var(--amber),0 26px 50px rgba(15,19,77,.18)}
+.photo .tape,.photo-about .tape{position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);width:84px;height:28px;background:rgba(246,219,174,.9);border:1px solid rgba(255,255,255,.7);box-shadow:0 3px 8px rgba(15,19,77,.15);z-index:2}
+@media (min-width:900px){
+  .hero{padding:80px 0 88px}
+  .hero-grid{grid-template-columns:1.2fr .8fr;gap:60px}
+  .hero-grid.no-photo{grid-template-columns:1fr}
+  .photo{order:2;width:min(400px,100%)}
+}
+
+/* faixa de fatos */
+.facts{background:var(--navy);color:#fff;padding:30px 0}
+.facts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}
+.fact b{display:block;font-weight:700;font-size:clamp(19px,5vw,36px);color:var(--amber);line-height:1.2}
+.fact span{display:block;font-size:clamp(10px,2.6vw,13px);letter-spacing:.07em;text-transform:uppercase;font-weight:500;margin-top:6px;color:#D5D7EC;line-height:1.4}
+.fact+.fact{border-left:1px solid rgba(255,255,255,.2)}
+
+
+/* como funciona */
+.how{padding:72px 0 44px}
+.steps{list-style:none;display:grid;gap:16px}
+.steps li{background:var(--white);border:1px solid var(--line);border-radius:22px 8px 22px 8px;padding:24px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 6px 18px rgba(15,19,77,.05)}
+.steps li:nth-child(even){border-radius:8px 22px 8px 22px}
+.steps .n{flex:none;width:40px;height:40px;border-radius:50%;background:var(--amber);color:var(--navy);font-weight:700;font-size:18px;display:grid;place-items:center}
+.steps h3{font-weight:600;font-size:17px;line-height:1.35;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:15.5px;line-height:1.65}
+.need{margin-top:22px;background:var(--amber-l);border-radius:18px;padding:20px 24px;font-size:15.5px;color:var(--navy);line-height:1.65}
+.need b{font-weight:700}
+@media (min-width:720px){.steps{grid-template-columns:1fr 1fr}.steps li:last-child{grid-column:1/-1}}
+
+/* sobre */
+.about{background:var(--soft);padding:72px 0}
+.about-grid{display:grid;gap:36px;align-items:center}
+.about-grid.no-photo{max-width:760px}
+.about-box{max-width:760px}
+.photo-about{position:relative;justify-self:center;width:min(280px,66%)}
+.photo-about img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:52% 48% 55% 45%/45% 55% 42% 58%;border:6px solid #fff;box-shadow:0 20px 40px rgba(15,19,77,.25);transform:rotate(3deg)}
+@media (min-width:900px){
+  .about-grid{grid-template-columns:.8fr 1.2fr;gap:64px}
+  .about-grid.no-photo{grid-template-columns:1fr}
+  .photo-about{width:min(360px,100%)}
+}
+.about p{font-size:17px}
+.quote{margin:30px 0;border-left:4px solid var(--amber);padding-left:22px}
+.quote p{font-style:italic;font-weight:500;color:var(--navy);font-size:clamp(18px,3vw,23px);line-height:1.5}
+.creds{list-style:none;margin:26px 0 22px}
+.creds li+li{margin-top:10px}
+.creds li{position:relative;padding-left:28px;font-weight:600;color:var(--navy);font-size:16.5px;line-height:1.5}
+.creds li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;background:var(--amber)}
+.reg{display:inline-block;margin-top:0;font-weight:600;font-size:13.5px;letter-spacing:.05em;background:var(--navy);color:#fff;padding:9px 18px;border-radius:99px}
+
+/* depoimentos */
+.depo{background:var(--navy);padding:72px 0 64px}
+.depo .eyebrow{color:#fff}
+.depo h2{color:#fff;margin-bottom:30px}
+.swipe-hint{color:var(--amber);font-size:13px;font-weight:600;letter-spacing:.04em;margin:-14px 0 14px}
+.depo-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 18px;margin:0 -20px;scrollbar-width:none}
+.depo-grid::-webkit-scrollbar{display:none}
+.quote-card{flex:0 0 84%;scroll-snap-align:center;background:var(--white);border-radius:22px 8px 22px 8px;padding:28px 24px 22px;position:relative;display:flex;flex-direction:column;justify-content:flex-start;gap:14px}
+.quote-card:nth-child(even){border-radius:8px 22px 8px 22px}
+.quote-card::before{content:"“";font-size:64px;line-height:.6;color:var(--amber);font-weight:700;display:block;height:26px}
+.quote-card blockquote{font-size:16px;line-height:1.65;font-weight:500;color:var(--navy)}
+.quote-card figcaption{margin-top:auto;padding-top:6px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+@media (min-width:720px){
+  .swipe-hint{display:none}
+  .depo-grid{display:block;column-count:2;column-gap:18px;overflow:visible;padding:0;margin:0}
+  .quote-card{break-inside:avoid;margin-bottom:18px}
+}
+@media (min-width:1000px){.depo-grid{column-count:3}}
+
+/* faq */
+.faq{padding:72px 0}
+.faq .container{text-align:center}
+.faq .eyebrow{justify-content:center}
+.faq .list{max-width:760px;margin:0 auto;text-align:left}
+details{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:0 22px}
+details+details{margin-top:10px}
+summary{cursor:pointer;list-style:none;font-weight:600;font-size:16px;color:var(--navy);padding:20px 32px 20px 0;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:0;top:14px;font-size:28px;color:var(--amber);font-weight:400}
+details[open] summary::after{content:"\2212"}
+details p{padding-bottom:20px;color:var(--muted);font-size:15.5px}
+
+/* chamada final */
+.cta{background:var(--navy);color:#fff;padding:72px 0;text-align:center}
+.cta h2{color:#fff;margin-bottom:16px}
+.cta p{color:#D5D7EC;max-width:48ch;margin:0 auto}
+.cta .actions{justify-content:center}
+.group{display:flex;align-items:center;gap:16px;max-width:520px;margin:44px auto 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:20px 8px 20px 8px;padding:20px 22px;text-align:left;text-decoration:none;color:#fff;transition:transform .2s cubic-bezier(.34,1.56,.64,1)}
+.group:hover{transform:translateY(-2px) rotate(-.6deg)}
+.group:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.group svg{flex:none;width:30px;height:30px;fill:none;stroke:var(--amber)}
+.group b{display:block;font-weight:600;font-size:16px}
+.group span{display:block;font-size:14px;color:#D5D7EC;margin-top:2px;line-height:1.55}
+
+/* rodapé */
+footer{padding:40px 0 110px;text-align:center;font-size:13px;color:var(--muted)}
+footer p+p{margin-top:10px}
+footer a{color:var(--navy);font-weight:600;text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* botão flutuante do WhatsApp */
+.fab{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:var(--amber);display:grid;place-items:center;box-shadow:0 12px 26px rgba(230,153,23,.5);z-index:50;transition:transform .2s cubic-bezier(.34,1.56,.64,1)}
+.fab:hover{transform:scale(1.08) rotate(-6deg)}
+.fab:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.fab svg{width:30px;height:30px;fill:var(--navy)}
+
+/* modal copiar número (navegador do TikTok) */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,19,77,.6);display:none;align-items:flex-end;justify-content:center;z-index:100}
+.modal-overlay.on{display:flex}
+.modal{background:var(--soft);width:100%;max-width:440px;border-radius:22px 22px 0 0;padding:28px 24px calc(24px + env(safe-area-inset-bottom));text-align:center}
+.modal h2{font-size:20px;margin-bottom:8px}
+.modal p{color:var(--muted);font-size:14.5px}
+.modal .number{margin:18px 0;font-weight:700;font-size:25px;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+.modal .btn{width:100%}
+.modal .close{margin-top:12px;background:none;border:none;color:var(--muted);font-size:14px;text-decoration:underline;cursor:pointer;padding:8px;font-family:var(--font)}
+.modal .copied{color:var(--navy);font-weight:600;font-size:14px;margin-top:10px;display:none}
+.modal .copied.on{display:block}
+@media (min-width:720px){.modal-overlay{align-items:center}.modal{border-radius:22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.marquee-track{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span><i>✦</i>DOR LOMBAR<i>✦</i>HÉRNIA DE DISCO<i>✦</i>CIÁTICA<i>✦</i>ATENDIMENTO ONLINE<i>✦</i>PACIENTES EM 10 PAÍSES<i>✦</i>DOR LOMBAR<i>✦</i>HÉRNIA DE DISCO<i>✦</i>CIÁTICA<i>✦</i>ATENDIMENTO ONLINE<i>✦</i>PACIENTES EM 10 PAÍSES<i>✦</i></span>
+    <span><i>✦</i>DOR LOMBAR<i>✦</i>HÉRNIA DE DISCO<i>✦</i>CIÁTICA<i>✦</i>ATENDIMENTO ONLINE<i>✦</i>PACIENTES EM 10 PAÍSES<i>✦</i>DOR LOMBAR<i>✦</i>HÉRNIA DE DISCO<i>✦</i>CIÁTICA<i>✦</i>ATENDIMENTO ONLINE<i>✦</i>PACIENTES EM 10 PAÍSES<i>✦</i></span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid" id="hero-grid">
+      <!-- Para a foto aparecer: salvar como elaine.jpg na mesma pasta deste arquivo. Sem o arquivo, este bloco some sozinho. -->
+      <figure class="photo" id="photo">
+        <img src="elaine.jpg" alt="Elaine Oliveira, fisioterapeuta" onerror="document.getElementById('photo').remove();document.getElementById('hero-grid').classList.add('no-photo')">
+      </figure>
+      <div>
+        <span class="eyebrow eyebrow-nome"><b class="who">Elaine Oliveira</b><span class="role">Fisioterapeuta online</span></span>
+        <h1>Fisioterapia online para <span class="mark">dor lombar<svg viewBox="0 0 140 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8.5C24 3 48 2 70 5.5S118 10 138 4" fill="none" stroke="#E69917" stroke-width="3.6" stroke-linecap="round"/></svg></span>, hérnia de disco e ciática.</h1>
+        <p class="sub">Consulta inicial e acompanhamento individual por videochamada, com orientação baseada em evidências e diretrizes clínicas.</p>
+        <div class="actions">
+          <a class="btn btn-primary js-wa" href="#" id="cta-hero">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>
+            Agendar consulta
+          </a>
+          <a class="btn btn-ghost" href="#como">Como funciona</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="container facts-grid">
+    <div class="fact"><b>Quase 10</b><span>anos de experiência</span></div>
+    <div class="fact"><b>10 países</b><span>com pacientes atendidos</span></div>
+    <div class="fact"><b>Individual</b><span>Acompanhamento personalizado</span></div>
+  </div>
+</div>
+
+<section class="how" id="como">
+  <div class="container">
+    <span class="eyebrow">Atendimento online</span>
+    <h2>Como funciona</h2>
+    <ol class="steps">
+      <li><span class="n">1</span><div><h3>Você chama no WhatsApp</h3><p>Me conta resumidamente seu caso.</p></div></li>
+      <li><span class="n">2</span><div><h3>Consulta inicial no Google Meet</h3><p>Conversamos sobre a história da sua dor, os tratamentos anteriores, o que você pensa sobre a sua condição e quais são os seus objetivos. Eu analiso os seus exames, se você tiver, e avalio os seus movimentos e as suas limitações.</p></div></li>
+      <li><span class="n">3</span><div><h3>Você conhece o seu plano</h3><p>Com base nos seus objetivos eu vou estruturar a conduta necessária para alcançá-los e apresento o plano de acompanhamento.</p></div></li>
+      <li><span class="n">4</span><div><h3>Acompanhamento</h3><p>Sessões individuais e personalizadas. Dúvidas e orientações tiradas pelo WhatsApp diretamente comigo, ferramentas para organizar as atividades, além de um app com exercícios que já testamos em sessão.</p></div></li>
+      <li><span class="n">5</span><div><h3>Encaminhamento quando necessário</h3><p>Se for preciso uma avaliação presencial ou médica, você recebe o direcionamento.</p></div></li>
+    </ol>
+    <div class="need"><b>Você só precisa</b> de um computador ou celular com câmera e internet, e um espaço onde você consiga se movimentar. Atendo pacientes em vários países, então a gente combina o horário que funciona no seu fuso.</div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid" id="about-grid">
+      <!-- Segunda foto: salvar como elaine-sobre.jpg na mesma pasta. Sem o arquivo, este bloco some sozinho. -->
+      <figure class="photo-about" id="photo-about">
+        <div class="tape"></div>
+        <img src="elaine-sobre.jpg" alt="Elaine Oliveira atendendo online" onerror="document.getElementById('photo-about').remove();document.getElementById('about-grid').classList.add('no-photo')">
+      </figure>
+      <div class="about-box">
+      <span class="eyebrow">Quem vai te atender</span>
+      <h2>Oi, eu sou a Elaine</h2>
+      <p>Sou fisioterapeuta, com quase 10 anos de experiência atendendo pacientes com dor lombar crônica, hérnia de disco e ciática. Trabalho com educação em dor e Terapia Cognitivo-Funcional (CFT), uma abordagem que junta movimento, compreensão da dor e confiança.</p>
+      <ul class="creds">
+        <li>Fisioterapeuta formada pela UNESP</li>
+        <li>Especialização e Residência em Ortopedia e Traumatologia</li>
+      </ul>
+      <span class="reg">Crefito 3 / 232342</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="depo" id="depoimentos">
+  <div class="container">
+    <span class="eyebrow">Feedbacks de pacientes</span>
+    <h2>O que dizem meus pacientes</h2>
+    <p class="swipe-hint">Deslize para o lado para ver mais</p>
+    <div class="depo-grid">
+      <figure class="quote-card"><blockquote>O que mais me marcou foi a segurança que senti. A forma como me ouviu, procurou entender e explicou tudo me deixou confiante.</blockquote><figcaption>Paciente · feedback anônimo</figcaption></figure>
+      <figure class="quote-card"><blockquote>Por ela dar mais atenção na minha dor e fazer eu entender que não está tudo perdido, que eu preciso me movimentar e perder o medo, por ser uma pessoa ótima de conversar e mostrar que realmente está ali para te ajudar.</blockquote><figcaption>Paciente · feedback anônimo</figcaption></figure>
+      <figure class="quote-card"><blockquote>Ficar tranquila a respeito da dor, que ela não iria me parar.</blockquote><figcaption>Paciente · feedback anônimo</figcaption></figure>
+      <figure class="quote-card"><blockquote>Entender do que se tratava a dor e como será o acompanhamento.</blockquote><figcaption>Paciente · feedback anônimo</figcaption></figure>
+      <figure class="quote-card"><blockquote>A confiança transmitida, a clareza da explicação sobre o meu problema.</blockquote><figcaption>Paciente · feedback anônimo</figcaption></figure>
+      <figure class="quote-card"><blockquote>Foi uma terapia, eu precisava muito desse bate-papo, me sentir acolhida.</blockquote><figcaption>Paciente · feedback anônimo</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="duvidas">
+  <div class="container">
+    <span class="eyebrow">Antes de agendar</span>
+    <h2>Dúvidas frequentes</h2>
+    <div class="list">
+      <details><summary>Preciso ter exames?</summary><p>Não é necessário, mas se você tiver, me mostre, isso me ajuda a entender seu caso.</p></details>
+      <details><summary>Quanto tempo dura o acompanhamento?</summary><p>Depende do seu caso e de como evolui durante o acompanhamento.</p></details>
+      <details><summary>Posso falar com você entre as sessões?</summary><p>Pode. Durante o acompanhamento você me manda mensagem para tirar dúvidas, inclusive fora do dia da sessão.</p></details>
+      <details><summary>E se eu precisar de atendimento presencial?</summary><p>Quando o seu caso pede, eu encaminho para uma avaliação presencial ou para o médico.</p></details>
+      <details><summary>Atende fora do Brasil?</summary><p>Sim, já atendi pacientes em 10 países. A gente combina o horário para o seu fuso.</p></details>
+      <details><summary>Quanto custa?</summary><p>Os valores e as formas de pagamento eu te passo pelo WhatsApp, me envie uma mensagem.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Vamos conversar sobre o seu caso</h2>
+    <p>O primeiro passo é uma mensagem. Eu respondo com os horários e tiro as suas dúvidas.</p>
+    <div class="actions">
+      <a class="btn btn-primary js-wa" href="#" id="cta-final">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>
+        Agendar consulta
+      </a>
+    </div>
+    <a class="group" href="https://chat.whatsapp.com/I7Zysjy2xvDKLzKC6pBPPf?mode=gi_t" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3H7a2 2 0 0 0-2 2v14l4-3h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z" stroke-width="2" stroke-linejoin="round"/></svg>
+      <div><b>Grupo gratuito no WhatsApp</b><span>Eu compartilho os links dos meus vídeos do YouTube e outros conteúdos sobre dor lombar e hérnia de disco.</span></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><b>Elaine Oliveira</b> · Fisioterapeuta · Crefito 3 / 232342</p>
+    <p><a href="https://instagram.com/elaineoliveeira_" target="_blank" rel="noopener">Instagram</a> · <a href="https://tiktok.com/@fisioelaineoliveira" target="_blank" rel="noopener">TikTok</a> · <a href="mailto:fisioelaineoliveira@gmail.com">E-mail</a></p>
+    <p>As informações desta página têm caráter educativo e não substituem uma avaliação individual.</p>
+  </div>
+</footer>
+
+<a class="fab js-wa" href="#" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>
+</a>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h2>Fale comigo no WhatsApp</h2>
+    <p>Como você está no TikTok, o WhatsApp não abre direto por aqui. Copie meu número abaixo e cole no seu WhatsApp.</p>
+    <div class="number">(18) 99611-1601</div>
+    <button class="btn btn-primary" type="button" id="modal-copy">Copiar número</button>
+    <p class="copied" id="modal-copied">Número copiado.</p>
+    <button class="close" type="button" id="modal-close">Fechar</button>
+  </div>
+</div>
+
+<script>
+  // Número com DDI + DDD, só dígitos.
+  var WHATSAPP = "5518996111601";
+  var WHATSAPP_FORMATADO = "(18) 99611-1601";
+  var MSG = "Olá, Elaine. Vim pelo seu link da bio e gostaria de agendar uma consulta online.";
+
+  var params = new URLSearchParams(location.search);
+  var src = params.get("utm_source");
+  var text = MSG + (src ? " (origem: " + src + ")" : "");
+  var url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text);
+
+  // No navegador interno do TikTok o link wa.me costuma não abrir.
+  // Nesse caso mostramos um modal para copiar o número manualmente.
+  var ua = navigator.userAgent || "";
+  var isTikTokInApp = /musical_ly|TikTok/i.test(ua) || (document.referrer && /tiktok\.com/i.test(document.referrer)) || src === "tiktok";
+
+  var modal = document.getElementById("modal");
+  function openModal(){ modal.classList.add("on"); document.getElementById("modal-copied").classList.remove("on"); }
+  function closeModal(){ modal.classList.remove("on"); }
+  document.getElementById("modal-close").addEventListener("click", closeModal);
+  modal.addEventListener("click", function(e){ if (e.target === modal) closeModal(); });
+
+  document.getElementById("modal-copy").addEventListener("click", function(){
+    var done = function(){ document.getElementById("modal-copied").classList.add("on"); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(WHATSAPP_FORMATADO).then(done).catch(done);
+    } else { done(); }
+  });
+
+  document.querySelectorAll(".js-wa").forEach(function(a){
+    if (isTikTokInApp) {
+      a.removeAttribute("href");
+      a.addEventListener("click", function(e){ e.preventDefault(); openModal(); });
+    } else {
+      a.href = url; a.target = "_blank"; a.rel = "noopener";
+    }
+  });
+</script>
+</body>
+</html>
