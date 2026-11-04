@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Protocolo de Caminhada | Elaine Oliveira</title>
+<meta name="description" content="Guia semanal para voltar a se movimentar com segurança, por Elaine Oliveira, fisioterapeuta.">
+<meta name="theme-color" content="#0F134D">
+<meta name="robots" content="noindex,nofollow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F134D; --amber:#E69917; --amber-l:#F6DBAE; --soft:#FDF6EA; --white:#fff;
+  --ink:#222; --muted:#6F7285; --line:#E3E4EC;
+  --verde:#3FA34D; --amarelo:#F2B705; --vermelho:#E53935;
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{overflow-x:hidden}
+body{background:var(--soft);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+.topo{background:var(--navy);color:#fff;padding:18px 20px 16px}
+.topo small{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:600}
+.topo h1{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.25;margin-top:2px}
+main{max-width:560px;margin:0 auto;padding:20px 18px}
+h2{font-size:21px;font-weight:700;color:var(--navy);letter-spacing:-.01em;line-height:1.25;margin-bottom:10px}
+h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:4px}
+p+p{margin-top:10px}
+.muted{color:var(--muted);font-size:14.5px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:22px 8px 22px 8px;padding:20px;margin-bottom:16px;box-shadow:0 6px 18px rgba(15,19,77,.05)}
+.card.destaque{background:var(--navy);color:#fff;border-color:var(--navy)}
+.card.destaque h2,.card.destaque h3{color:#fff}
+.card.destaque .muted{color:#D5D7EC}
+.card.aviso{background:var(--amber-l);border-color:var(--amber-l)}
+.card.alerta{border-color:var(--vermelho);background:#FFF1F0}
+.rot{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:6px;display:block}
+.destaque .rot{color:var(--amber)}
+.grande{font-size:44px;font-weight:700;line-height:1.05;color:var(--amber);letter-spacing:-.02em}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:none;cursor:pointer;font-family:var(--font);font-size:16px;font-weight:600;padding:16px 20px;border-radius:16px 8px 16px 8px;text-decoration:none;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn.prim{background:var(--amber);color:var(--navy);box-shadow:0 10px 22px rgba(230,153,23,.35)}
+.btn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn.claro{background:#fff;color:var(--navy)}
+.btn.zap{background:#1FA855;color:#fff}
+.btn.peq{padding:12px 16px;font-size:14.5px;width:auto}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn+.btn{margin-top:10px}
+.linha{display:flex;gap:10px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:5px 12px;font-size:13px;font-weight:500;color:var(--navy)}
+.destaque .chip{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff}
+.timer{font-size:56px;font-weight:700;text-align:center;letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums;line-height:1.1;margin:8px 0 6px}
+.barra{height:10px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden;margin:6px 0 14px}
+.barra i{display:block;height:100%;background:var(--amber);border-radius:99px;transition:width .4s}
+.rostos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 4px}
+.rosto-op{border:2px solid var(--line);border-radius:18px;background:#fff;padding:12px 6px;text-align:center;cursor:pointer;font-family:var(--font);font-size:12.5px;font-weight:600;color:var(--navy);line-height:1.3}
+.rosto-op svg{display:block;margin:0 auto 6px}
+.rosto-op.on{border-color:var(--navy);box-shadow:0 0 0 3px rgba(15,19,77,.15);background:var(--soft)}
+.opcoes{display:grid;gap:8px;margin:8px 0 4px}
+.opcao{border:2px solid var(--line);border-radius:14px;background:#fff;padding:13px 16px;text-align:left;cursor:pointer;font-family:var(--font);font-size:15px;font-weight:500;color:var(--ink)}
+.opcao.on{border-color:var(--navy);background:var(--soft);font-weight:600;color:var(--navy)}
+.sn{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 4px}
+label.campo{display:block;font-size:14px;font-weight:600;color:var(--navy);margin:14px 0 6px}
+input[type=number],input[type=text],textarea{width:100%;font-family:var(--font);font-size:16px;border:2px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;color:var(--ink)}
+input[type=number]:focus,input[type=text]:focus,textarea:focus{outline:none;border-color:var(--navy)}
+textarea{min-height:92px;resize:vertical}
+input[type=range]{width:100%;accent-color:var(--navy);height:36px}
+.dor-val{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;color:var(--navy)}
+.semana{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.dia{min-width:44px;height:44px;border-radius:12px;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:600;color:var(--muted);background:#fff;position:relative}
+.dia.v{background:var(--verde);border-color:var(--verde);color:#fff}
+.dia.a{background:var(--amarelo);border-color:var(--amarelo);color:#222}
+.dia.r{background:var(--vermelho);border-color:var(--vermelho);color:#fff}
+.dia.atual{border-color:var(--navy);box-shadow:0 0 0 3px rgba(15,19,77,.2);color:var(--navy)}
+.dia.opc{border-style:dashed}
+.lista{list-style:none}
+.lista li{position:relative;padding:8px 0 8px 26px;border-bottom:1px solid var(--line)}
+.lista li:last-child{border-bottom:none}
+.lista li::before{content:"";position:absolute;left:0;top:15px;width:10px;height:10px;border-radius:50%;background:var(--amber)}
+.nivel{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.nivel:last-child{border-bottom:none}
+.nivel b{display:block;color:var(--navy)}
+.pilula{display:inline-block;border-radius:99px;padding:3px 12px;font-size:12px;font-weight:700;color:#fff}
+.pilula.l{background:var(--verde)}.pilula.m{background:var(--amarelo);color:#222}.pilula.i{background:var(--vermelho)}
+.resultado{font-size:19px;font-weight:700;line-height:1.3;margin-bottom:8px}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--navy);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:20}
+nav.tabs button{background:none;border:none;color:#B9BBDD;font-family:var(--font);font-size:10.5px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;cursor:pointer;letter-spacing:.02em}
+nav.tabs button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+nav.tabs button.on{color:var(--amber)}
+details{background:var(--soft);border-radius:12px;padding:0 14px;margin-top:10px;border:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:14.5px;color:var(--navy);padding:12px 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+details[open]{padding-bottom:10px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:14.5px}
+.check input{margin-top:5px;width:18px;height:18px;accent-color:var(--navy);flex:none}
+.rodape{text-align:center;font-size:12px;color:var(--muted);margin-top:22px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom));background:var(--navy);color:#fff;padding:11px 20px;border-radius:99px;font-size:14px;font-weight:500;z-index:40;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:1}
+.ov{position:fixed;inset:0;background:#0B0F3B;z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:18px 16px 28px;overflow-y:auto}
+.ov-box{max-width:420px;width:100%}
+.ov-box img{width:100%;display:block;border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.ov-box p{color:#D5D7EC;font-size:13.5px;text-align:center;margin:12px 0 4px}
+.ov-box .btn{margin-top:10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topo"><small>Elaine Oliveira · Fisioterapeuta</small><h1>Protocolo de Caminhada</h1></header>
+<main id="app"></main>
+<nav class="tabs" id="tabs"></nav>
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------
+     DADOS DO PROTOCOLO (conforme o PDF da Elaine)
+  ------------------------------------------------------------------ */
+  var WHATSAPP = "5518996111601";
+  var CHAVE = "protocolo-caminhada-v1";
+
+  var SEMANAS = [
+    { n: 1, meta: "12 a 14 minutos", dias: "4 dias", ritmo: "Leve a moderado", terreno: "Plano", min: [12, 12, 14, 14] },
+    { n: 2, meta: "20 a 25 minutos", dias: "4 dias", ritmo: "Leve a moderado", terreno: "Plano", min: [20, 20, 25, 25] },
+    { n: 3, meta: "30 a 35 minutos", dias: "4 a 5 dias", ritmo: "Moderado", terreno: "Plano", min: [30, 30, 35, 35, 35], opcional: 4 },
+    { n: 4, meta: "40 a 45 minutos", dias: "5 dias", ritmo: "Moderado", terreno: "Livre", min: [40, 40, 45, 45, 45] }
+  ];
+  var DIAS = [];
+  SEMANAS.forEach(function (s) {
+    s.min.forEach(function (m, i) {
+      DIAS.push({ semana: s.n, dia: i + 1, min: m, ritmo: s.ritmo, terreno: s.terreno, opcional: s.opcional === i });
+    });
+  });
+
+  var CARINHAS = {
+    verde: { nome: "Tranquila", cor: "#3FA34D" },
+    amarela: { nome: "Com desconforto", cor: "#F2B705" },
+    vermelha: { nome: "Dolorida", cor: "#E53935" }
+  };
+  var AMANHA = [
+    { id: "melhor", txt: "Melhor" },
+    { id: "igual", txt: "Igual" },
+    { id: "um_pouco_pior", txt: "Um pouco pior" },
+    { id: "muito_pior", txt: "Muito pior" }
+  ];
+  var SINAIS = [
+    "Fraqueza nova na perna",
+    "Perda de força progressiva nas pernas",
+    "Alteração importante de sensibilidade",
+    "Dor muito intensa e diferente do habitual"
+  ];
+
+  /* ------------------------------------------------------------------
+     ESTADO (fica só no aparelho da pessoa)
+  ------------------------------------------------------------------ */
+  function novo() { return { v: 1, nome: "", leu: false, pos: 0, walks: [], pausa: null, anot: {}, timer: null }; }
+  function carregar() {
+    try { var s = JSON.parse(localStorage.getItem(CHAVE)); if (s && s.v === 1) return s; } catch (e) {}
+    return novo();
+  }
+  var S = carregar();
+  function salvar() { try { localStorage.setItem(CHAVE, JSON.stringify(S)); } catch (e) {} }
+
+  var ui = { aba: "hoje", registrando: false, resultado: null, form: {} };
+
+  /* ------------------------------------------------------------------
+     DATAS
+  ------------------------------------------------------------------ */
+  function iso(d) { var m = d.getMonth() + 1, x = d.getDate(); return d.getFullYear() + "-" + (m < 10 ? "0" : "") + m + "-" + (x < 10 ? "0" : "") + x; }
+  function hoje() { return window.__hoje || iso(new Date()); }
+  function entre(a, b) { return Math.round((new Date(b + "T12:00:00") - new Date(a + "T12:00:00")) / 86400000); }
+
+  /* ------------------------------------------------------------------
+     REGRAS DE DECISÃO
+  ------------------------------------------------------------------ */
+  // Próximo dia do plano que decide se há aumento de tempo (pula o dia opcional)
+  function proximoParaRegra(pos) {
+    var p = pos + 1;
+    if (p < DIAS.length && DIAS[p].opcional) p = p + 1;
+    return p < DIAS.length ? DIAS[p] : null;
+  }
+  function amanhaOk(w) { return w && (w.amanha === "melhor" || w.amanha === "igual"); }
+
+  // w: caminhada já com o check-in do dia seguinte; prev: caminhada anterior
+  function decidir(w, prev) {
+    if (w.alerta && w.alerta.length) return "profissional";
+    if (w.carinha === "vermelha" || w.amanha === "muito_pior" || w.perna === true) return "pausar";
+    if (w.carinha === "amarela" || w.amanha === "um_pouco_pior") return "repetir";
+    // carinha verde e dia seguinte igual ou melhor
+    var atual = DIAS[w.pos];
+    var prox = proximoParaRegra(w.pos);
+    if (!prox) return "avancar";
+    if (prox.min > atual.min) {
+      // aumentar o tempo exige duas caminhadas seguidas no verde
+      var doisVerdes = prev && prev.carinha === "verde" && amanhaOk(prev);
+      return doisVerdes ? "avancar" : "repetir";
+    }
+    return "avancar";
+  }
+
+  function aplicar(w, dec) {
+    w.decisao = dec;
+    if (dec === "avancar") {
+      var p = w.pos + 1;
+      S.pos = p;
+    } else if (dec === "pausar") {
+      S.pausa = { desde: hoje(), prof: false };
+    } else if (dec === "profissional") {
+      S.pausa = { desde: hoje(), prof: true };
+    }
+    salvar();
+  }
+
+  function ultima() { return S.walks.length ? S.walks[S.walks.length - 1] : null; }
+  function penultima() { return S.walks.length > 1 ? S.walks[S.walks.length - 2] : null; }
+
+  /* ------------------------------------------------------------------
+     RÓTULOS E AUXILIARES
+  ------------------------------------------------------------------ */
+  function rotuloDia(d) { return "Semana " + d.semana + " · Dia " + d.dia; }
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function rosto(tipo, t) {
+    var c = { verde: "#3FA34D", amarela: "#F2B705", vermelha: "#E53935" }[tipo];
+    var boca = tipo === "verde" ? "M14 27 Q24 37 34 27" : tipo === "amarela" ? "M15 31 L33 31" : "M14 34 Q24 25 34 34";
+    return '<svg viewBox="0 0 48 48" width="' + t + '" height="' + t + '" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="' + c + '"/><circle cx="17" cy="19" r="2.8" fill="#fff"/><circle cx="31" cy="19" r="2.8" fill="#fff"/><path d="' + boca + '" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>';
+  }
+  function corDor(v) { return v <= 2 ? "verde" : v <= 5 ? "amarela" : "vermelha"; }
+  function linkZap(msg) { return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg); }
+  function aviso(txt) {
+    var t = document.getElementById("toast"); t.textContent = txt; t.classList.add("on");
+    setTimeout(function () { t.classList.remove("on"); }, 2600);
+  }
+  function diasVerdesDaSemana(n) {
+    var ini = 0, fim = 0, k = 0;
+    SEMANAS.forEach(function (s) { if (s.n < n) k += s.min.length; });
+    ini = k; fim = k + SEMANAS[n - 1].min.length - 1;
+    return S.walks.filter(function (w) { return w.pos >= ini && w.pos <= fim && w.carinha === "verde"; }).length;
+  }
+  function statusDia(pos) {
+    var r = null;
+    S.walks.forEach(function (w) { if (w.pos === pos) r = w; });
+    return r;
+  }
+
+  /* ------------------------------------------------------------------
+     TEMPORIZADOR (guarda o horário de início, então continua certo
+     mesmo se o celular bloquear a tela)
+  ------------------------------------------------------------------ */
+  function decorrido() {
+    var t = S.timer; if (!t) return 0;
+    return t.acum + (t.rodando ? Date.now() - t.ini : 0);
+  }
+  function fmt(ms) {
+    var s = Math.floor(ms / 1000), m = Math.floor(s / 60), x = s % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (x < 10 ? "0" : "") + x;
+  }
+  var tick = null;
+  function ligarTick() {
+    if (tick) return;
+    tick = setInterval(function () {
+      var el = document.getElementById("tempo");
+      if (!el) return;
+      el.textContent = fmt(decorrido());
+      var meta = DIAS[S.pos] ? DIAS[S.pos].min * 60000 : 0;
+      var b = document.getElementById("progresso");
+      if (b && meta) b.style.width = Math.min(100, decorrido() / meta * 100) + "%";
+    }, 500);
+  }
+
+  /* ------------------------------------------------------------------
+     TELAS
+  ------------------------------------------------------------------ */
+  function telaHoje() {
+    if (!S.leu) return telaBoasVindas();
+    if (S.pos >= DIAS.length) return telaConclusao();
+    var u = ultima();
+
+    if (ui.resultado) return telaResultado();
+
+    if (S.pausa) return telaPausa();
+
+    if (u && u.amanha === null) {
+      if (u.data === hoje()) return telaAguardandoAmanha(u);
+      return telaCheckin(u);
+    }
+    if (ui.registrando) return telaRegistro();
+    return telaDia();
+  }
+
+  function telaBoasVindas() {
+    return '<div class="card"><span class="rot">Bem-vinda e bem-vindo</span><h2>Guia semanal para voltar a se movimentar com segurança</h2>' +
+      '<p>A caminhada é uma das formas mais simples, seguras e acessíveis de voltar a se movimentar.</p>' +
+      '<p>Muitas pessoas com dor lombar ou hérnia de disco acabam reduzindo muito suas atividades por medo da dor, mas ficar parado por muito tempo pode aumentar a rigidez, a perda de condicionamento e até a sensibilidade do corpo.</p>' +
+      '<p class="muted" style="margin-top:12px">Elaborado e produzido por Elaine Oliveira, fisioterapeuta.</p></div>' +
+      '<div class="card aviso"><h3>Antes de começar</h3><p>Leia a página <b>Segurança</b>. Ela explica como escolher o ritmo, como observar a dor e quando procurar um profissional.</p>' +
+      '<button class="btn sec" style="margin-top:12px" data-act="aba" data-v="seguranca">Ler como usar com segurança</button></div>' +
+      '<div class="card"><label class="check"><input type="checkbox" id="leu"><span>Li as orientações de segurança e entendi que este guia não substitui a avaliação de um profissional.</span></label>' +
+      '<label class="campo" for="nome">Seu primeiro nome (opcional)</label><input type="text" id="nome" maxlength="24" placeholder="Aparece só no cartão que você compartilhar" value="' + esc(S.nome) + '">' +
+      '<button class="btn prim" style="margin-top:14px" data-act="comecar">Começar o protocolo</button></div>';
+  }
+
+  function telaDia() {
+    var d = DIAS[S.pos];
+    var meta = d.min * 60000;
+    var rodando = S.timer && S.timer.rodando;
+    var temTimer = !!S.timer;
+    var pct = Math.min(100, decorrido() / meta * 100);
+    var botoes;
+    if (!temTimer) botoes = '<button class="btn prim" data-act="iniciar">Iniciar caminhada</button>';
+    else if (rodando) botoes = '<button class="btn claro" data-act="pausartimer">Pausar</button><button class="btn prim" data-act="terminar">Terminei a caminhada</button>';
+    else botoes = '<button class="btn claro" data-act="retomartimer">Continuar</button><button class="btn prim" data-act="terminar">Terminei a caminhada</button>';
+    var opc = d.opcional ? '<div class="card aviso"><h3>Dia opcional</h3><p>Esta semana prevê 4 a 5 dias. Você pode fazer este dia ou seguir direto para a semana 4.</p><button class="btn sec" style="margin-top:10px" data-act="pular">Pular este dia</button></div>' : "";
+    var ult = ultima();
+    var resumoUlt = "";
+    if (ult && ult.decisao) {
+      resumoUlt = '<div class="card"><span class="rot">Seu último dia</span><div class="linha">' + rosto(ult.carinha, 34) + '<div><b>' + rotuloDia(DIAS[ult.pos]) + '</b><div class="muted">' + textoDecisaoCurto(ult.decisao) + '</div></div></div><button class="btn sec" style="margin-top:12px" data-act="cartaoultimo">Ver cartão do dia</button></div>';
+    }
+    return '<div class="card destaque"><span class="rot">Hoje</span><h2>' + rotuloDia(d) + '</h2>' +
+      '<div class="grande">' + d.min + ' min</div>' +
+      '<div class="chips"><span class="chip">Ritmo: ' + d.ritmo + '</span><span class="chip">Terreno: ' + d.terreno + '</span></div>' +
+      '<div class="timer" id="tempo">' + fmt(decorrido()) + '</div>' +
+      '<div class="barra"><i id="progresso" style="width:' + pct + '%"></i></div>' + botoes + '</div>' +
+      opc + resumoUlt +
+      '<p class="muted" style="text-align:center">Fique entre ritmo leve e moderado. Se precisar, converse durante a caminhada: o ritmo certo permite falar.</p>';
+  }
+
+  function telaRegistro() {
+    var d = DIAS[S.pos];
+    var f = ui.form;
+    var minSug = f.minutos != null ? f.minutos : Math.max(1, Math.round(decorrido() / 60000)) || d.min;
+    var dor = f.dor != null ? f.dor : 0;
+    var rostosHtml = Object.keys(CARINHAS).map(function (k) {
+      return '<button class="rosto-op' + (f.carinha === k ? " on" : "") + '" data-act="carinha" data-v="' + k + '">' + rosto(k, 46) + CARINHAS[k].nome + '</button>';
+    }).join("");
+    return '<div class="card"><span class="rot">' + rotuloDia(d) + '</span><h2>Como foi a caminhada</h2>' +
+      '<label class="campo" for="minutos">Tempo caminhado (minutos)</label><input type="number" id="minutos" min="1" max="180" inputmode="numeric" value="' + minSug + '">' +
+      '<label class="campo" for="dor">Dor durante a caminhada (0 a 10)</label>' +
+      '<div class="dor-val"><span id="dorRosto">' + rosto(corDor(dor), 34) + '</span><span id="dorNum">' + dor + '</span><span class="muted" id="dorTxt">' + (dor === 0 ? "Sem dor" : dor === 10 ? "Dor máxima imaginável" : "") + '</span></div>' +
+      '<input type="range" id="dor" min="0" max="10" step="1" value="' + dor + '">' +
+      '<label class="campo">Escolha a carinha</label><div class="rostos">' + rostosHtml + '</div>' +
+      '<p class="muted">Verde: a caminhada foi tranquila. Amarela: houve algum desconforto. Vermelha: foi dolorida.</p>' +
+      '<button class="btn prim" style="margin-top:16px" data-act="salvarcaminhada">Salvar</button>' +
+      '<button class="btn sec" data-act="voltarregistro">Voltar</button></div>';
+  }
+
+  function telaAguardandoAmanha(u) {
+    var d = DIAS[u.pos];
+    return '<div class="card destaque"><span class="rot">Caminhada registrada</span><div class="linha">' + rosto(u.carinha, 52) +
+      '<div><h2>' + rotuloDia(d) + '</h2><div class="muted">' + u.minutos + ' minutos · dor ' + u.dor + ' de 10</div></div></div></div>' +
+      '<div class="card"><h3>Amanhã de manhã</h3><p>Volte aqui e conte como você acordou. É essa resposta que mostra se você segue para o próximo dia, repete ou descansa.</p></div>' +
+      '<div class="card aviso"><h3>Compartilhe com o grupo</h3><p>Gere um cartão com o seu dia e envie para o grupo. Ele não mostra a sua dor nem o seu nome completo.</p>' +
+      '<button class="btn prim" style="margin-top:12px" data-act="cartao">Gerar cartão do dia</button></div>';
+  }
+
+  function telaCheckin(u) {
+    var d = DIAS[u.pos];
+    var f = ui.form;
+    var op = AMANHA.map(function (a) { return '<button class="opcao' + (f.amanha === a.id ? " on" : "") + '" data-act="amanha" data-v="' + a.id + '">' + a.txt + '</button>'; }).join("");
+    var sinais = SINAIS.map(function (s, i) {
+      return '<label class="check"><input type="checkbox" class="sinal" value="' + i + '"' + ((f.sinais || []).indexOf(i) >= 0 ? " checked" : "") + '><span>' + s + '</span></label>';
+    }).join("");
+    return '<div class="card"><span class="rot">Check-in do dia seguinte</span><h2>Como você acordou hoje</h2>' +
+      '<p class="muted">Sobre a caminhada de ontem (' + rotuloDia(d) + ', ' + u.minutos + ' minutos).</p>' +
+      '<label class="campo">Comparado a antes da caminhada, você está</label><div class="opcoes">' + op + '</div>' +
+      '<label class="campo">A dor desceu mais para a perna?</label>' +
+      '<div class="sn"><button class="opcao' + (f.perna === false ? " on" : "") + '" data-act="perna" data-v="nao">Não</button><button class="opcao' + (f.perna === true ? " on" : "") + '" data-act="perna" data-v="sim">Sim</button></div>' +
+      '<details' + ((f.sinais || []).length ? " open" : "") + '><summary>Apareceu algum destes sinais? (toque para abrir)</summary>' + sinais + '</details>' +
+      '<button class="btn prim" style="margin-top:16px" data-act="enviarcheckin"' + (f.amanha && f.perna !== undefined ? "" : " disabled") + '>Ver o que fazer</button></div>';
+  }
+
+  function textoDecisaoCurto(dec) {
+    return { avancar: "Você seguiu para o próximo dia", repetir: "Você repetiu o dia", pausar: "Você descansou antes de retomar", profissional: "Você buscou orientação antes de retomar" }[dec] || "";
+  }
+
+  function telaResultado() {
+    var r = ui.resultado, w = r.walk, dec = r.dec;
+    var prox = DIAS[S.pos];
+    var cls = "card", tit = "", corpo = "", extra = "";
+    if (dec === "avancar") {
+      tit = "Você segue para o próximo dia";
+      corpo = prox ? "Próximo: <b>" + rotuloDia(prox) + "</b>, " + prox.min + " minutos." : "Você concluiu o protocolo.";
+      extra = '<button class="btn prim" style="margin-top:12px" data-act="fecharresultado">Continuar</button>';
+    } else if (dec === "repetir") {
+      cls += " aviso"; tit = "Repita o último dia";
+      corpo = "Repita <b>" + rotuloDia(DIAS[w.pos]) + "</b> (" + DIAS[w.pos].min + " minutos). Se precisar, reduza um pouco o tempo. Seguir no seu ritmo faz parte do protocolo.";
+      extra = '<button class="btn prim" style="margin-top:12px" data-act="fecharresultado">Entendi</button>';
+    } else if (dec === "pausar") {
+      cls += " aviso"; tit = "Hora de descansar";
+      corpo = "Descanse de <b>1 a 2 dias</b>. Conforme for sentindo melhora, você pode retomar. Quando retomar, repita o último dia.";
+      extra = '<button class="btn prim" style="margin-top:12px" data-act="fecharresultado">Entendi</button>';
+    } else {
+      cls += " alerta"; tit = "Procure um profissional";
+      corpo = "Você marcou um sinal que merece avaliação antes de continuar. Fale com um profissional.";
+      extra = '<a class="btn zap" style="margin-top:12px" target="_blank" rel="noopener" href="' + linkZap("Olá, Elaine. Estou usando o Protocolo de Caminhada e apareceu um sinal de alerta. Gostaria de agendar uma consulta.") + '">Falar com a Elaine no WhatsApp</a><button class="btn sec" data-act="fecharresultado">Entendi</button>';
+    }
+    return '<div class="' + cls + '"><span class="rot">Resultado do check-in</span><div class="resultado">' + tit + '</div><p>' + corpo + '</p>' + extra + '</div>';
+  }
+
+  function telaPausa() {
+    var p = S.pausa;
+    var dias = entre(p.desde, hoje());
+    var pode = dias >= 1;
+    var txt;
+    if (p.prof) {
+      txt = '<p>Antes de retomar, converse com um profissional sobre o sinal que você marcou.</p>' +
+        '<a class="btn zap" style="margin-top:12px" target="_blank" rel="noopener" href="' + linkZap("Olá, Elaine. Estou usando o Protocolo de Caminhada e apareceu um sinal de alerta. Gostaria de agendar uma consulta.") + '">Falar com a Elaine no WhatsApp</a>' +
+        '<button class="btn sec" data-act="retomar">Já fui orientado e quero retomar</button>';
+    } else {
+      txt = '<p>Descanse de <b>1 a 2 dias</b>. Conforme for sentindo melhora, você pode retomar.</p>' +
+        '<p class="muted">' + (pode ? "Já passou pelo menos um dia. Quando se sentir melhor, toque em Retomar." : "Hoje é o primeiro dia de descanso. O botão de retomar libera amanhã.") + '</p>' +
+        '<button class="btn prim" style="margin-top:12px" data-act="retomar"' + (pode ? "" : " disabled") + '>Retomar o protocolo</button>';
+    }
+    return '<div class="card aviso"><span class="rot">Em pausa</span><h2>Descanso</h2>' + txt + '</div>' +
+      '<div class="card"><h3>Lembre-se</h3><ul class="lista"><li>Nem toda dor significa piora.</li><li>Oscilações ao longo da semana são normais.</li><li>Pequenos avanços também contam.</li></ul></div>';
+  }
+
+  function telaConclusao() {
+    return '<div class="card destaque"><span class="rot">Protocolo concluído</span><h2>Completar este protocolo já é um grande passo</h2>' +
+      '<p>Mesmo que você ainda tenha alguns dias melhores e outros mais difíceis, o mais importante é perceber que seu corpo pode se movimentar com segurança.</p>' +
+      '<p>Se você conseguiu aumentar o tempo de caminhada ao longo das semanas, isso já mostra que seu corpo está se adaptando e ganhando mais confiança.</p></div>' +
+      '<div class="card"><h3>Lembre-se</h3><ul class="lista"><li>Nem toda dor significa piora</li><li>Oscilações ao longo da semana são normais</li><li>Pequenos avanços também contam</li><li>A constância costuma ser mais importante do que fazer muito de uma vez</li></ul></div>' +
+      '<div class="card aviso"><h3>Quer acompanhamento individual</h3><p>Se você quer um plano feito para o seu caso, a Elaine atende online.</p>' +
+      '<a class="btn zap" style="margin-top:12px" target="_blank" rel="noopener" href="' + linkZap("Olá, Elaine. Concluí o Protocolo de Caminhada e gostaria de agendar uma consulta.") + '">Agendar uma consulta</a></div>';
+  }
+
+  function telaPlano() {
+    var h = SEMANAS.map(function (s) {
+      var k = 0; SEMANAS.forEach(function (x) { if (x.n < s.n) k += x.min.length; });
+      var dias = s.min.map(function (m, i) {
+        var pos = k + i, w = statusDia(pos), cls = "dia";
+        if (w) cls += w.carinha === "verde" ? " v" : w.carinha === "amarela" ? " a" : " r";
+        if (pos === S.pos && S.pos < DIAS.length) cls += " atual";
+        if (DIAS[pos].opcional) cls += " opc";
+        return '<div class="' + cls + '" title="Dia ' + (i + 1) + '">' + m + "'</div>";
+      }).join("");
+      return '<div class="card"><span class="rot">Semana ' + s.n + '</span><h3>Meta: ' + s.meta + ' · ' + s.dias + '</h3>' +
+        '<div class="chips"><span class="chip">Ritmo: ' + s.ritmo + '</span><span class="chip">Terreno: ' + s.terreno + '</span></div><div class="semana">' + dias + '</div></div>';
+    }).join("");
+    return '<h2>Plano de 4 semanas</h2><p class="muted" style="margin-bottom:14px">Cada quadradinho é um dia, com o tempo em minutos. O contorno escuro mostra onde você está. As cores mostram a carinha que você marcou.</p>' + h;
+  }
+
+  function telaSeguranca() {
+    return '<h2>Como usar este programa com segurança</h2>' +
+      '<div class="card"><h3>Como escolher o ritmo</h3><p class="muted" style="margin-bottom:6px">Fique entre <b>leve</b> e <b>moderado</b>.</p>' +
+      '<div class="nivel"><span class="pilula l">Leve</span><div>Consegue conversar normalmente.</div></div>' +
+      '<div class="nivel"><span class="pilula m">Moderado</span><div>Consegue conversar, mas fica um pouco mais ofegante.</div></div>' +
+      '<div class="nivel"><span class="pilula i">Intenso</span><div>Fica bem ofegante e fala só frases curtas. Evite este ritmo.</div></div></div>' +
+      '<div class="card"><h3>Observe sua dor</h3><p>Depois da caminhada, e no dia seguinte, pergunte-se:</p><ul class="lista"><li>A dor aumentou muito?</li><li>Ela desceu mais para a perna?</li><li>No dia seguinte eu acordei muito pior?</li></ul>' +
+      '<p style="margin-top:10px">Se a resposta foi <b>sim</b> para pelo menos uma pergunta, ajuste: reduza um pouco no próximo dia, ou pare e ajuste.</p></div>' +
+      '<div class="card"><h3>Quando aumentar o tempo de caminhada</h3><ul class="lista"><li>Duas caminhadas seguidas ficaram no verde</li><li>No dia seguinte você ficou igual ou melhor</li></ul>' +
+      '<p style="margin-top:10px">Se você concluir os dois requisitos, segue para o próximo dia. Se não concluir, repete o último dia. O aplicativo faz essa conta por você.</p></div>' +
+      '<div class="card"><h3>Escala de dor</h3><p>De 0 (sem dor) a 10 (dor máxima imaginável). Use a escala para anotar a dor durante a caminhada.</p>' +
+      '<div class="linha" style="margin-top:8px;justify-content:space-between">' + rosto("verde", 34) + rosto("verde", 34) + rosto("amarela", 34) + rosto("amarela", 34) + rosto("vermelha", 34) + rosto("vermelha", 34) + '</div>' +
+      '<div class="linha muted" style="justify-content:space-between;margin-top:4px"><span>0</span><span>2</span><span>4</span><span>6</span><span>8</span><span>10</span></div></div>' +
+      '<div class="card alerta"><h3>Quando procurar um profissional</h3><ul class="lista">' + SINAIS.map(function (s) { return "<li>" + s + "</li>"; }).join("") + '</ul>' +
+      '<a class="btn zap" style="margin-top:12px" target="_blank" rel="noopener" href="' + linkZap("Olá, Elaine. Estou usando o Protocolo de Caminhada e gostaria de agendar uma consulta.") + '">Agendar uma consulta</a></div>' +
+      '<p class="rodape">Este guia não substitui a avaliação de um profissional.</p>';
+  }
+
+  function telaProgresso() {
+    var h = SEMANAS.map(function (s) {
+      var v = diasVerdesDaSemana(s.n);
+      return '<div class="card"><span class="rot">Semana ' + s.n + '</span><h3>Dias em verde: ' + v + '</h3>' +
+        '<label class="campo" for="anot' + s.n + '">Anotações</label><textarea id="anot' + s.n + '" data-semana="' + s.n + '" placeholder="Como foi a sua semana">' + esc(S.anot[s.n] || "") + '</textarea></div>';
+    }).join("");
+    return '<h2>Como foi sua semana</h2><p class="muted" style="margin-bottom:14px">Os dias em verde são os dias em que você marcou a carinha verde.</p>' + h;
+  }
+
+  function telaMais() {
+    return '<h2>Mais</h2>' +
+      '<div class="card aviso"><h3>Cartão para compartilhar</h3><p class="muted">Depois de cada caminhada, o aplicativo gera um cartão para enviar ao grupo. Veja como ele fica.</p><button class="btn prim" style="margin-top:12px" data-act="cartaoexemplo">Ver um exemplo do cartão</button></div>' +
+      '<div class="card"><h3>Seu nome no cartão</h3><p class="muted">Opcional. Aparece só no cartão que você compartilhar.</p><label class="campo" for="nome2">Primeiro nome</label>' +
+      '<input type="text" id="nome2" maxlength="24" value="' + esc(S.nome) + '"><button class="btn sec" style="margin-top:12px" data-act="salvarnome">Salvar nome</button></div>' +
+      '<div class="card"><h3>Seu progresso fica no seu aparelho</h3><p class="muted">Nada é enviado para a internet. Se você trocar de celular ou limpar os dados do navegador, o progresso se perde. Para guardar uma cópia, use o botão abaixo.</p>' +
+      '<button class="btn sec" style="margin-top:12px" data-act="exportar">Salvar uma cópia do progresso</button>' +
+      '<label class="btn sec" style="margin-top:10px;cursor:pointer">Restaurar uma cópia<input type="file" id="importar" accept="application/json" hidden></label></div>' +
+      '<div class="card"><h3>Recomeçar</h3><p class="muted">Apaga todo o seu progresso neste aparelho.</p><button class="btn sec" style="margin-top:12px" data-act="apagar">Apagar meus dados</button></div>' +
+      '<div class="card"><h3>Sobre</h3><p>Protocolo de Caminhada, elaborado e produzido por Elaine Oliveira, fisioterapeuta. Crefito 3 / 232342.</p>' +
+      '<a class="btn zap" style="margin-top:12px" target="_blank" rel="noopener" href="' + linkZap("Olá, Elaine. Estou usando o Protocolo de Caminhada.") + '">Falar com a Elaine</a></div>';
+  }
+
+  /* ------------------------------------------------------------------
+     NAVEGAÇÃO E RENDER
+  ------------------------------------------------------------------ */
+  var ABAS = [
+    { id: "hoje", nome: "Hoje", ico: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>' },
+    { id: "plano", nome: "Plano", ico: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/>' },
+    { id: "seguranca", nome: "Segurança", ico: '<path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>' },
+    { id: "progresso", nome: "Semana", ico: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>' },
+    { id: "mais", nome: "Mais", ico: '<circle cx="12" cy="12" r="1.5"/><circle cx="5" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/>' }
+  ];
+  function render() {
+    var app = document.getElementById("app");
+    var h;
+    switch (ui.aba) {
+      case "plano": h = telaPlano(); break;
+      case "seguranca": h = telaSeguranca(); break;
+      case "progresso": h = telaProgresso(); break;
+      case "mais": h = telaMais(); break;
+      default: h = telaHoje();
+    }
+    app.innerHTML = h;
+    document.getElementById("tabs").innerHTML = ABAS.map(function (a) {
+      return '<button class="' + (ui.aba === a.id ? "on" : "") + '" data-act="aba" data-v="' + a.id + '"><svg viewBox="0 0 24 24">' + a.ico + '</svg>' + a.nome + '</button>';
+    }).join("");
+    if (S.timer && S.timer.rodando) ligarTick();
+    window.scrollTo(0, 0);
+  }
+
+  /* ------------------------------------------------------------------
+     CARTÃO PARA COMPARTILHAR
+  ------------------------------------------------------------------ */
+  function cartao(w, verdes) {
+    var d = DIAS[w.pos];
+    var c = document.createElement("canvas"); c.width = 1080; c.height = 1350;
+    var x = c.getContext("2d");
+    x.fillStyle = "#0F134D"; x.fillRect(0, 0, 1080, 1350);
+    x.fillStyle = "#E69917"; x.fillRect(80, 120, 120, 10);
+    x.fillStyle = "#E69917"; x.font = "600 34px Poppins, sans-serif"; x.textAlign = "left";
+    x.fillText("PROTOCOLO DE CAMINHADA", 80, 190);
+    // rosto
+    var cor = CARINHAS[w.carinha].cor;
+    x.fillStyle = cor; x.beginPath(); x.arc(540, 520, 230, 0, Math.PI * 2); x.fill();
+    x.fillStyle = "#fff"; x.beginPath(); x.arc(460, 450, 26, 0, Math.PI * 2); x.fill(); x.beginPath(); x.arc(620, 450, 26, 0, Math.PI * 2); x.fill();
+    x.strokeStyle = "#fff"; x.lineWidth = 26; x.lineCap = "round"; x.beginPath();
+    if (w.carinha === "verde") { x.moveTo(430, 570); x.quadraticCurveTo(540, 700, 650, 570); }
+    else if (w.carinha === "amarela") { x.moveTo(440, 620); x.lineTo(640, 620); }
+    else { x.moveTo(430, 680); x.quadraticCurveTo(540, 570, 650, 680); }
+    x.stroke();
+    x.fillStyle = "#fff"; x.textAlign = "center";
+    x.font = "700 120px Poppins, sans-serif"; x.fillText(w.minutos + " min", 540, 900);
+    x.font = "500 44px Poppins, sans-serif"; x.fillStyle = "#D5D7EC"; x.fillText("caminhados · " + rotuloDia(d), 540, 970);
+    var v = (verdes != null) ? verdes : diasVerdesDaSemana(d.semana);
+    x.fillStyle = "#E69917"; x.font = "700 52px Poppins, sans-serif";
+    x.fillText("Dias em verde na semana: " + v, 540, 1070);
+    x.fillStyle = "#fff"; x.font = "500 38px Poppins, sans-serif";
+    x.fillText(S.nome ? "Dia concluído por " + S.nome : "Mais um dia concluído", 540, 1170);
+    x.fillStyle = "#D5D7EC"; x.font = "400 30px Poppins, sans-serif";
+    x.fillText("Voltando a se movimentar com segurança", 540, 1240);
+    x.fillText("@elaineoliveeira_", 540, 1290);
+    return c;
+  }
+  var cartaoAtual = null;
+  function fecharCartao() {
+    var o = document.getElementById("cartaoOverlay"); if (o) o.remove();
+    cartaoAtual = null;
+  }
+  function mostrarCartao(w, verdes) {
+    var desenhar = function () {
+      var c = cartao(w, verdes);
+      c.toBlob(function (blob) {
+        var arq = new File([blob], "meu-dia-protocolo-caminhada.png", { type: "image/png" });
+        var pode = !!(navigator.canShare && navigator.share && navigator.canShare({ files: [arq] }));
+        cartaoAtual = { blob: blob, arq: arq };
+        fecharCartao(); cartaoAtual = { blob: blob, arq: arq };
+        var url = URL.createObjectURL(blob);
+        var o = document.createElement("div"); o.className = "ov"; o.id = "cartaoOverlay";
+        o.innerHTML = '<div class="ov-box"><img src="' + url + '" alt="Cartão do seu dia">' +
+          '<p>' + (pode ? "Toque em Compartilhar para enviar ao grupo." : "Baixe a imagem e envie para o grupo.") + '</p>' +
+          (pode ? '<button class="btn prim" data-act="cartaocompartilhar">Compartilhar</button>' : '') +
+          '<button class="btn ' + (pode ? "claro" : "prim") + '" data-act="cartaobaixar">Baixar imagem</button>' +
+          '<button class="btn sec" style="color:#fff;border-color:#fff" data-act="cartaofechar">Fechar</button></div>';
+        document.body.appendChild(o);
+      }, "image/png");
+    };
+    if (document.fonts && document.fonts.load) {
+      Promise.all([document.fonts.load("700 60px Poppins"), document.fonts.load("500 40px Poppins"), document.fonts.load("400 30px Poppins")]).then(desenhar, desenhar);
+    } else { desenhar(); }
+  }
+  function baixarCartao() {
+    if (!cartaoAtual) return;
+    var a = document.createElement("a"); a.href = URL.createObjectURL(cartaoAtual.blob); a.download = "meu-dia-protocolo-caminhada.png";
+    document.body.appendChild(a); a.click(); a.remove();
+    aviso("Imagem baixada");
+  }
+  function compartilharAtual() {
+    if (cartaoAtual && navigator.share) navigator.share({ files: [cartaoAtual.arq], title: "Protocolo de Caminhada" }).catch(function () {});
+  }
+
+  /* ------------------------------------------------------------------
+     AÇÕES
+  ------------------------------------------------------------------ */
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-act]"); if (!b) return;
+    var act = b.getAttribute("data-act"), v = b.getAttribute("data-v");
+    switch (act) {
+      case "aba": ui.aba = v; render(); break;
+      case "comecar":
+        var cb = document.getElementById("leu");
+        if (!cb.checked) { aviso("Marque a caixa para continuar"); break; }
+        S.leu = true; S.nome = (document.getElementById("nome").value || "").trim(); salvar(); render(); break;
+      case "iniciar": S.timer = { acum: 0, ini: Date.now(), rodando: true }; salvar(); render(); break;
+      case "pausartimer": S.timer.acum += Date.now() - S.timer.ini; S.timer.rodando = false; salvar(); render(); break;
+      case "retomartimer": S.timer.ini = Date.now(); S.timer.rodando = true; salvar(); render(); break;
+      case "terminar":
+        if (S.timer && S.timer.rodando) { S.timer.acum += Date.now() - S.timer.ini; S.timer.rodando = false; }
+        ui.form = { minutos: Math.max(1, Math.round(decorrido() / 60000)), dor: 0, carinha: null }; ui.registrando = true; salvar(); render(); break;
+      case "voltarregistro": ui.registrando = false; render(); break;
+      case "pular": S.pos = S.pos + 1; salvar(); render(); break;
+      case "carinha": ui.form.minutos = Number(document.getElementById("minutos").value) || ui.form.minutos; ui.form.dor = Number(document.getElementById("dor").value); ui.form.carinha = v; render(); break;
+      case "salvarcaminhada":
+        var f = ui.form;
+        var min = Number(document.getElementById("minutos").value);
+        var dor = Number(document.getElementById("dor").value);
+        if (!f.carinha) { aviso("Escolha uma carinha"); break; }
+        if (!min || min < 1) { aviso("Informe o tempo caminhado"); break; }
+        S.walks.push({ pos: S.pos, data: hoje(), minutos: min, dor: dor, carinha: f.carinha, amanha: null, perna: null, alerta: [], decisao: null });
+        S.timer = null; ui.registrando = false; ui.form = {}; salvar(); render(); break;
+      case "cartao": case "cartaoultimo": mostrarCartao(ultima()); break;
+      case "cartaoexemplo": mostrarCartao({ pos: 1, minutos: 12, carinha: "verde", dor: 2 }, 2); break;
+      case "cartaocompartilhar": compartilharAtual(); break;
+      case "cartaobaixar": baixarCartao(); break;
+      case "cartaofechar": fecharCartao(); break;
+      case "amanha": ui.form.amanha = v; render(); break;
+      case "perna": ui.form.perna = (v === "sim"); render(); break;
+      case "enviarcheckin":
+        var u = ultima(); var f2 = ui.form;
+        var sinais = [].slice.call(document.querySelectorAll(".sinal:checked")).map(function (c) { return Number(c.value); });
+        u.amanha = f2.amanha; u.perna = f2.perna; u.alerta = sinais;
+        var prev = penultima();
+        var dec = decidir(u, prev);
+        aplicar(u, dec);
+        ui.resultado = { walk: u, dec: dec }; ui.form = {}; render(); break;
+      case "fecharresultado": ui.resultado = null; render(); break;
+      case "retomar": S.pausa = null; salvar(); render(); break;
+      case "salvarnome": S.nome = (document.getElementById("nome2").value || "").trim(); salvar(); aviso("Nome salvo"); break;
+      case "exportar":
+        var blob = new Blob([JSON.stringify(S)], { type: "application/json" });
+        var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "progresso-protocolo-caminhada.json";
+        document.body.appendChild(a); a.click(); a.remove(); break;
+      case "apagar":
+        if (confirm("Apagar todo o seu progresso neste aparelho?")) { S = novo(); salvar(); ui = { aba: "hoje", registrando: false, resultado: null, form: {} }; render(); }
+        break;
+    }
+  });
+
+  document.addEventListener("input", function (e) {
+    var t = e.target;
+    if (t.id === "dor") {
+      var val = Number(t.value);
+      document.getElementById("dorNum").textContent = val;
+      document.getElementById("dorRosto").innerHTML = rosto(corDor(val), 34);
+      document.getElementById("dorTxt").textContent = val === 0 ? "Sem dor" : val === 10 ? "Dor máxima imaginável" : "";
+      ui.form.dor = val;
+    }
+    if (t.getAttribute && t.getAttribute("data-semana")) { S.anot[t.getAttribute("data-semana")] = t.value; salvar(); }
+  });
+  document.addEventListener("change", function (e) {
+    if (e.target.id === "importar" && e.target.files[0]) {
+      var rd = new FileReader();
+      rd.onload = function () {
+        try { var d = JSON.parse(rd.result); if (d && d.v === 1) { S = d; salvar(); render(); aviso("Progresso restaurado"); } else aviso("Arquivo inválido"); }
+        catch (err) { aviso("Arquivo inválido"); }
+      };
+      rd.readAsText(e.target.files[0]);
+    }
+    if (e.target.classList && e.target.classList.contains("sinal")) {
+      ui.form.sinais = [].slice.call(document.querySelectorAll(".sinal:checked")).map(function (c) { return Number(c.value); });
+    }
+  });
+
+  /* ------------------------------------------------------------------
+     INÍCIO
+  ------------------------------------------------------------------ */
+  if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
+    navigator.serviceWorker.register("sw.js").catch(function () {});
+  }
+  // Gancho para testes das regras (não é usado pelo app)
+  window.__t = { decidir: decidir, DIAS: DIAS, SEMANAS: SEMANAS, proximoParaRegra: proximoParaRegra, cartao: cartao, mostrarCartao: mostrarCartao };
+  render();
+})();
+</script>
+</body>
+</html>
